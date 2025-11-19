@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Nikky Fashion Palace</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__left">
+                    <button class="mobile-menu-btn" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <a href="index.html" class="logo">
+                        <span class="logo__text">Nikky</span>
+                        <span class="logo__subtitle">Fashion Palace</span>
+                    </a>
+                </div>
+
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="nav__dropdown">
+                            <a href="#">Collections</a>
+                            <ul class="dropdown">
+                                <li><a href="category.html?category=women">Women's Wear</a></li>
+                                <li><a href="category.html?category=men">Men's Wear</a></li>
+                                <li><a href="category.html?category=children">Children's Clothing</a></li>
+                                <li><a href="category.html?category=shoes">Shoes</a></li>
+                                <li><a href="category.html?category=accessories">Accessories</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#new-arrivals">New Arrivals</a></li>
+                        <li><a href="#bestsellers">Best Sellers</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header__right">
+                    <div class="search-box">
+                        <button class="search-btn" aria-label="Search">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </button>
+                        <div class="search-container">
+                            <input type="text" class="search-input" placeholder="Search luxury fashion...">
+                            <div class="search-suggestions"></div>
+                        </div>
+                    </div>
+                    <a href="cart.html" class="cart-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.3 15.7 4.6 16.4 5.2 16.4H17M17 16C15.9 16 15 16.9 15 18C15 19.1 15.9 20 17 20C18.1 20 19 19.1 19 18C19 16.9 18.1 16 17 16ZM9 18C9 19.1 8.1 20 7 20C5.9 20 5 19.1 5 18C5 16.9 5.9 16 7 16C8.1 16 9 16.9 9 18Z"
+                                stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="cart-page">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a> /
+                <span>Shopping Cart</span>
+            </nav>
+
+            <div class="cart-header">
+                <h1>Shopping Cart</h1>
+                <p id="cart-items-count">0 items</p>
+            </div>
+
+            <div class="cart-content">
+                <!-- Cart Items -->
+                <section class="cart-items-section">
+                    <div class="cart-items-header">
+                        <h2>Your Items</h2>
+                        <button class="btn btn--outline" id="continue-shopping">
+                            Continue Shopping
+                        </button>
+                    </div>
+
+                    <div class="cart-items" id="cart-items">
+                        <!-- Cart items will be loaded here -->
+                    </div>
+
+                    <div class="empty-cart" id="empty-cart">
+                        <div class="empty-cart-content">
+                            <h3>Your cart is empty</h3>
+                            <p>Discover our luxury collection and add items to your cart</p>
+                            <a href="index.html" class="btn btn--gold">Start Shopping</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Order Summary -->
+                <aside class="cart-summary">
+                    <div class="summary-card">
+                        <h3>Order Summary</h3>
+
+                        <div class="summary-line">
+                            <span>Subtotal</span>
+                            <span id="subtotal">£0.00</span>
+                        </div>
+
+                        <div class="summary-line">
+                            <span>Shipping</span>
+                            <span id="shipping">£0.00</span>
+                        </div>
+
+                        <div class="summary-line">
+                            <span>Estimated Tax</span>
+                            <span id="tax">£0.00</span>
+                        </div>
+
+                        <div class="summary-line total">
+                            <span>Total</span>
+                            <span id="total">£0.00</span>
+                        </div>
+
+                        <div class="shipping-notice">
+                            <p>✓ Free shipping on orders over £200</p>
+                            <p>✓ Delivery within 3-5 business days</p>
+                        </div>
+
+                        <button class="btn btn--gold checkout-btn" id="checkout-btn" disabled>
+                            Proceed to Checkout
+                        </button>
+
+                        <div class="payment-methods">
+                            <p>We accept:</p>
+                            <div class="payment-icons">
+                                <span>💳</span>
+                                <span>📱</span>
+                                <span>🔗</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Promo Code -->
+                    <div class="promo-code">
+                        <h4>Promo Code</h4>
+                        <div class="promo-input-group">
+                            <input type="text" id="promo-code" placeholder="Enter code">
+                            <button class="btn btn--outline" id="apply-promo">Apply</button>
+                        </div>
+                        <div class="promo-message" id="promo-message"></div>
+                    </div>
+
+                    <!-- Security Badges -->
+                    <div class="security-badges">
+                        <div class="security-item">
+                            <span>🔒</span>
+                            <span>Secure Checkout</span>
+                        </div>
+                        <div class="security-item">
+                            <span>🛡️</span>
+                            <span>SSL Encrypted</span>
+                        </div>
+                        <div class="security-item">
+                            <span>✓</span>
+                            <span>Money Back Guarantee</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Recently Viewed -->
+            <section class="recently-viewed">
+                <h2>You Might Also Like</h2>
+                <div class="products-grid" id="recently-viewed-grid">
+                    <!-- Recently viewed products will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <div class="logo">
+                        <span class="logo__text">Nikky</span>
+                        <span class="logo__subtitle">Fashion Palace</span>
+                    </div>
+                    <p>London's premier destination for luxury fashion since 2010.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="TikTok">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer__section">
+                    <h3>Customer Care</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Information</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h3>Contact</h3>
+                    <p>123 Bond Street<br>London W1S 2YF</p>
+                    <p>+44 20 7123 4567</p>
+                    <p>info@nikkyfashion.com</p>
+                    <button class="whatsapp-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893-.001-3.189-1.262-6.209-3.553-8.485" />
+                        </svg>
+                        Chat on WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2024 Nikky Fashion Palace. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/cart-page.js"></script>
+</body>
+
+</html>
